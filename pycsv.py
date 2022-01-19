@@ -5,9 +5,6 @@ from mysql.connector import Error
 import time
 import calendar
 import os
-#from pathlib import Path
-#empdata = pd.read_csv('ZJJKFINANCINGCBL.csv', index_col=False, delimiter = ',')
-#empdata.head()
 path = os.getcwd()
 # 默认csv文件在当前目录下，后续可根据实际情况修改
 #path = '\test\test\csvfiles'
@@ -84,8 +81,6 @@ for item in new_table_list:
             cursor.execute(sqlz)
             # 目前无法自动读取格式，需手动录入
             sqts = "CREATE TABLE " + tn + "(" + tts
-            sqlx = "CREATE TABLE " + tn + "(ORG_ID bigint,JRJG varchar(200),RZCBL varchar(200))" +";"
-            #print("this is executed: ",sqlx)
             cursor.execute(sqts)
             for i,row in emp.iterrows():
                 sql = "INSERT INTO " + tn + " VALUES" + " (" + values+ ")"
